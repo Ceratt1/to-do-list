@@ -17,6 +17,22 @@ const getAll =  async () => {
 };
 
 
+const getOne = async (id) =>{
+
+    const operacao = connection.execute(
+        'SELECT * FROM todolist.tasks WHERE id_task = ?',
+        [id]
+    )
+    return operacao
+
+}
+
+
+
+
+
+
+
 const createTask = async (task) => {
 
     try{
@@ -49,10 +65,23 @@ const atttaskstatus = async (status, id) => {
 
 }
 
+const deletetask = async (id) => {
+
+    const deletetask = await connection.execute(
+        'DELETE FROM todolist.tasks WHERE id_task = ?;',
+        [id]
+    )
+
+
+}
+
+
 
 
 module.exports = {
     getAll,
+    getOne,
     createTask,
-    atttaskstatus
+    atttaskstatus,
+    deletetask
 };

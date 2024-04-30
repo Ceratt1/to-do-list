@@ -9,9 +9,9 @@ router.get('/', (req, res) => {res.status(404).json({ mensagem: 'Não há nada n
 router.get('/tasks', taskConstroller.getAll);
 router.get('/tasks/:idTask', taskConstroller.getOne)
 router.post('/tasks', taskConstroller.createTaskController)
-
-
 router.put('/tasks/:idTask', taskConstroller.atttaskstatus)
+
+router.delete('/tasks/:idTask', taskConstroller.deletetask)
 
 
 

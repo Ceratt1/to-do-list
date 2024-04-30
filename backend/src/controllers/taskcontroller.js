@@ -12,10 +12,10 @@ const getAll = async (req, res) => {
 
 const getOne = async (req,res) => {
 
-    let index = parseInt(req.params.idTask) -1
-    const tasks = await tasksModel.getAll();
-
-    return res.status(200).json(tasks[index])
+    let id = parseInt(req.params.idTask)
+    const tasks = await tasksModel.getOne(id);
+    console.log(tasks[0])
+    return res.status(200).json(tasks[0])
 
 }
 
@@ -40,10 +40,26 @@ const atttaskstatus = async (req,res) => {
     const status = req.body.status
     let id = req.params.idTask
 
+    if (status && id) {
+        if (status != '') {
+            const operacaodb = await tasksModel.atttaskstatus(status, id)
+            console.log(status,'  |  ', id);
+            return res.status(200).json({msg : 'sucesso na operacao'})
+        }
+    }else{
+        return res.status(404).json({msg : 'não enviamos nada'})
+    }
 
-    const operacaodb = await tasksModel.atttaskstatus(status, id)
-    console.log(status,'  |  ', id);
-    return res.status(200).json({msg : 'sucesso na operacao'})
+}
+
+const deletetask = async (req,res) => {
+
+    let id = req.params.idTask
+
+    console.log(id);
+
+    const delreturn = tasksModel.deletetask(id)
+    return res.status(200).json({msg : 'operacao concluida!'})
 
 }
 
@@ -55,5 +71,6 @@ module.exports = {
     getAll,
     getOne,
     createTaskController,
-    atttaskstatus
+    atttaskstatus,
+    deletetask
 }
