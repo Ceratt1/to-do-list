@@ -5,8 +5,14 @@ const taskConstroller = require('./controllers/taskcontroller')
 
 
 
-// router.get('/tasks', (req,res) => res.status(200).send('hii111'))
-router.get('/tasks', taskConstroller.getAll)
+router.get('/', (req, res) => {res.status(404).json({ mensagem: 'Não há nada nesta página.' })});
+router.get('/tasks', taskConstroller.getAll);
+router.get('/tasks/:idTask', taskConstroller.getOne)
+router.post('/tasks', taskConstroller.createTaskController)
+
+
+router.put('/tasks/:idTask', taskConstroller.atttaskstatus)
+
 
 
 

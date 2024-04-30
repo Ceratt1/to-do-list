@@ -4,8 +4,8 @@
   "description": "to-do-list feita no dia 29/abr/24 para estudos",
   "main": "index.js",
   "scripts": {
-    "start" : "node src/index.js",
-    "dev" : "nodemon src/server.js"
+    "start": "node src/index.js",
+    "dev": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "Gabriel Ceratti",
