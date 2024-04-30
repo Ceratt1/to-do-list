@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul id="tasks">
+        
+    </ul>
+
+
+    <script>
+        const apiUrl = 'http://localhost:3030/tasks';
+        const taskselement = document.getElementById('tasks')
+        function getData() {
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao obter os dados da API');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    for (let index = 0; index < data.length; index++) {
+                        const element = data[index];
+                        console.log(element);
+                        taskselement.innerHTML += `<li>${element.task_name}  |   ${element.status_tasks}</li>`
+                        
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+        }
+
+        getData();
+
+    </script>
+</body>
+
+</html>
