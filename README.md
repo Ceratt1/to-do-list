@@ -1,0 +1,1 @@
+API seguindos os padrões REST para uma to do list, o arquivo 'index.html' foi criado apenas para interação visual.
