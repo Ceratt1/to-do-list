@@ -1,6 +1,10 @@
-const getAll = (req, res) =>{
+const tasksModel = require('../models/tasksModelo')
 
-    return res.status(200).json({'msensagem' : 'Tudo certo no controle'})
+const getAll = async (req, res) => {
+
+    const tasks = await tasksModel.getAll();
+
+    return res.status(200).json(tasks)
 }
 
 

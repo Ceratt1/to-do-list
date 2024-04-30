@@ -11,13 +11,10 @@
   "author": "Gabriel Ceratti",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "mysql2": "^3.9.7"
   },
   "devDependencies": {
-    "@eslint/js": "^9.1.1",
-    "eslint": "^9.1.1",
     "globals": "^15.1.0",
     "nodemon": "^3.1.0"
   }
